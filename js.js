@@ -11,9 +11,13 @@ let weightedDipGoal;
 $("#enter-bw-btn").on("click", function(){
   bodyweight = $('#body-weight').val();
   let goals = goalCalculator(bodyweight);
+  let ul = $('#goals-ul')
+  ul.text('');
 
 for (const keys in goals) {
-  console.log(keys, goals[keys] + 'kg')
+  let li = $('<li>')
+  li.text(keys + ': ' + goals[keys] + 'kg');
+  ul.append(li)
 }
 })
 
